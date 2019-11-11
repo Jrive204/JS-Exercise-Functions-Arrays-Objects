@@ -66,8 +66,15 @@ function makePersonObject(id,name,email) {
 */
 function getName(name) {
   /* code here */
-  return `Hello my name is ${name}`;
+  const person = {
+    
+    name: `Hello, my name is ${name}`,
+      };
+    
+  return person;
 }
+console.log(getName('jose'))
+
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -84,10 +91,21 @@ function getName(name) {
 */
 function makeSmartPerson(name) {
   /* code here */
-  
+  const singlename = {
+    name,
+    sum: function(num1,num2){
+      return num1 + num2;
+    },
+
+    speak: function (){
+     return `Hello my name is ${name}.`
+    },
+    
+  }
+  return singlename;
 
 }
-
+console.log(makeSmartPerson('Jose'))
 
 
 
@@ -246,7 +264,7 @@ function getOlderCars(inventory, maxyear) {
   let oldCars = [];
 
   for (let i = 0; i < inventory.length; i++){
-    if(inventory[i].car_year < maxyear){
+    if(inventory[i].car_year <= maxyear){
       oldCars.push(inventory[i])
     }
 
@@ -267,9 +285,21 @@ function getOlderCars(inventory, maxyear) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
+function getGermanCars(inventory) {
   /* code here */
+  const germanCars= [];
+  for (let i = 0; i < inventory.length; i++) {
+  if(inventory[i].car_make === "Audi" || 
+    inventory[i].car_make === 'Mercedes-Benz' || 
+    inventory[i].car_make === 'Volkswagen' || 
+    inventory[i].car_make ===`BMW`) {
+    germanCars.push(inventory[i]); }
+ 
+  }
+  return germanCars;
 }
+
+ 
 
 /**
  * ### Challenge refactor to arrow functions
@@ -289,7 +319,7 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
+const sum = null;  sum => (a,b) => a+b;
 const addFive = null; // code here!
 const argTimesTwo = null; // code here!
 
