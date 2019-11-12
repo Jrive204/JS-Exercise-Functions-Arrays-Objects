@@ -213,8 +213,12 @@ function getCarInfoById(array, id) {
 */
 
 //failing 
-function sortCarInventory(arr) {
+function sortCarInventory(inventory) {
   /* code here */
+  inventory.sort((car1, car2) => (car1.car_model > car2.car_model) ? 1: -1);
+
+  return inventory;
+
  
  };
 
