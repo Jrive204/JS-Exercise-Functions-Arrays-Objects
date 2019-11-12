@@ -64,16 +64,12 @@ function makePersonObject(id,name,email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(name) {
+function getName(person) {
   /* code here */
-  const person = {
-    
-    name: `Hello, my name is ${name}`,
-      };
-    
-  return person;
+ return `Hello, my name is ${person.name}.`;
+
 }
-console.log(getName('jose'))
+
 
 
 /**
@@ -217,16 +213,10 @@ function getCarInfoById(array, id) {
 */
 
 //failing 
-function sortCarInventory(inventory) {
+function sortCarInventory(arr) {
   /* code here */
-  const sorted = inventory.sort (function (currentCar, NextCar){
-
-    return currentCar.Car_model - NextCar.car_model;
-
-  } )
-return sorted;  
-
- }
+ 
+ };
 
 /**
  * ### Challenge `getModelYears`
@@ -245,7 +235,7 @@ yearArray.push(arr[i].car_year)
 
 }
 return yearArray;
-}
+};
 
 /**
  * ### Challenge `getOlderCars`
@@ -319,9 +309,10 @@ function getGermanCars(inventory) {
  *   return num * 2
  * }
 */
-const sum = null;  sum => (a,b) => a+b;
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+// const sum = null;
+const sum = (num1,num2) => {return num1 + num2};
+const addFive = (num1) => {return num1 + 5};
+const argTimesTwo = (num) => {return num * 2;};
 
 /**
  * ### Challenge `carMaker`
@@ -336,8 +327,16 @@ const argTimesTwo = null; // code here!
  *         (1) causes the odometer in the object to be increased by the distance,
  *         (2) returns the updated value of the `odometer`.
 */
-function carMaker(/* code here */) {
+function carMaker(num) {
   /* code here */
+  let car = {
+    odometer: num,
+    drive: function(distance){
+      car.odometer = num += distance;
+      return car.odometer;
+    }
+  }
+  return car;
 }
 
 /// ////// END OF CHALLENGE /////////
